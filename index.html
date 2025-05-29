@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Enfesto</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+    input, button { margin: 5px; padding: 5px; }
+    .peca { margin-bottom: 10px; border: 1px solid #ccc; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Simulador de Enfesto e Corte</h1>
+  <form method="post">
+    <label>Nome do Pedido:</label>
+    <input type="text" name="nome_pedido" required><br>
+    <label>Largura do Rolo (m):</label>
+    <input type="number" name="largura_rolo" step="0.01" value="1.40" required><br>
+    <label>Comprimento do Rolo (m):</label>
+    <input type="number" name="comprimento_rolo" step="0.01" value="10.00" required><br>
+
+    <h3>Peças</h3>
+    <div id="pecas">
+      <div class="peca">
+        Nome: <input name="nome_peca" required>
+        Largura (m): <input name="largura" step="0.01" required>
+        Comprimento (m): <input name="comprimento" step="0.01" required>
+        Quantidade: <input name="quantidade" type="number" required>
+      </div>
+    </div>
+    <button type="button" onclick="addPeca()">+ Adicionar peça</button><br><br>
+
+    <button type="submit">Gerar Relatório PDF</button>
+  </form>
+
+  <script>
+    function addPeca() {
+      let peca = document.createElement("div");
+      peca.className = "peca";
+      peca.innerHTML = `Nome: <input name="nome_peca" required>
+        Largura (m): <input name="largura" step="0.01" required>
+        Comprimento (m): <input name="comprimento" step="0.01" required>
+        Quantidade: <input name="quantidade" type="number" required>`;
+      document.getElementById("pecas").appendChild(peca);
+    }
+  </script>
+</body>
+</html>
