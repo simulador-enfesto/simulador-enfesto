@@ -87,3 +87,8 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # usa a porta que o Render fornece
+    app.run(host="0.0.0.0", port=port)
